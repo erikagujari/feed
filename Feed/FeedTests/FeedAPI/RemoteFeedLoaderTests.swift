@@ -103,8 +103,10 @@ class RemoteFeedLoaderTests: XCTestCase {
         let client = HTTPClientSpy()
         var sut: RemoteFeedLoader? = RemoteFeedLoader(client: client, url: url)
         var capturedResults = [RemoteFeedLoader.Result]()
+        
         sut?.load { capturedResults.append($0) }
         sut = nil
+        
         client.complete(withStatusCode: 200, data: makeItemsJson([]))
         XCTAssertTrue(capturedResults.isEmpty)
     }
