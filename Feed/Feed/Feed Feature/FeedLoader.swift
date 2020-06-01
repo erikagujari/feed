@@ -6,11 +6,15 @@
 //  Copyright © 2020 Erik Agujari. All rights reserved.
 //
 
-enum LoadFeedResult {
+public enum LoadFeedResult<Error: Swift.Error> {
     case success([FeedItem])
-    case error(Error)
+    case failure(Error)
 }
 
+extension LoadFeedResult: Equatable where Error: Equatable {}
+
 protocol FeedLoader {
-    func load(completion: @escaping (LoadFeedResult) -> ())
+    associatedtype Error: Swift.Error
+    
+    func load(completion: @escaping (LoadFeedResult<Error>) -> ())
 }
