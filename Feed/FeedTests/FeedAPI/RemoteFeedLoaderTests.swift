@@ -36,7 +36,7 @@ class RemoteFeedLoaderTests: XCTestCase {
     func test_load_deliversErrorOnClientError() {
         let (sut, client) = makeSUT()
         expect(sut,
-               toCompleteWith: .failure(.connectivity),
+               toCompleteWith: .failure(RemoteFeedLoader.Error.connectivity),
                when: {
                 let clientError = NSError(domain: "Test",
                                           code: 0,
@@ -50,7 +50,7 @@ class RemoteFeedLoaderTests: XCTestCase {
         let samples = [199, 201, 300, 400, 500]
         samples.enumerated().forEach { code in
             expect(sut,
-                   toCompleteWith: .failure(.invalidData),
+                   toCompleteWith: .failure(RemoteFeedLoader.Error.invalidData),
                    when: {
                     client.complete(withStatusCode: code.element,
                                     data: makeItemsJson([]),
@@ -62,7 +62,7 @@ class RemoteFeedLoaderTests: XCTestCase {
     func test_load_deliversErrorOn200HTTPResponse() {
         let (sut, client) = makeSUT()
         expect(sut,
-               toCompleteWith: .failure(.invalidData),
+               toCompleteWith: .failure(RemoteFeedLoader.Error.invalidData),
                when: {
                 let invalidJSON = Data()
                 client.complete(withStatusCode: 200, data: invalidJSON)
@@ -156,7 +156,7 @@ class RemoteFeedLoaderTests: XCTestCase {
             case let (.success(receivedItems), .success(expectedItems)):
                 XCTAssertEqual(receivedItems, expectedItems, file: file, line: line)
             case let (.failure(receivedError), .failure(expectedError)):
-                XCTAssertEqual(receivedError, expectedError, file: file, line: line)
+                XCTAssertEqual(receivedError as! RemoteFeedLoader.Error, expectedError as! RemoteFeedLoader.Error, file: file, line: line)
             default:
                 XCTFail("Expected result: \(expectedResult) got receivedResult: \(receivedResult)", file: file, line: line)
             }
