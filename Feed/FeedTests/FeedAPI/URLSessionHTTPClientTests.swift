@@ -52,27 +52,27 @@ class URLSessionHTTPClientTests: XCTestCase {
         XCTAssertNotNil(resultErrorFor(data: anyData(), response: nonHTTPURLResponse(), error: nil))
     }
     
-//    func test_getFromURL_succeedsOnHTTPURLResponseWithData() {
-//        let data = anyData()
-//        let response = anyHTTPURLResponse()
-//        
-//        let receivedValues = resultValuesFor(data: data, response: response, error: nil)
-//
-//        XCTAssertEqual(receivedValues?.data, data)
-//        XCTAssertEqual(receivedValues?.response.url, response.url)
-//        XCTAssertEqual(receivedValues?.response.statusCode, response.statusCode)
-//    }
-//
-//    func test_getFromURL_succeedsWithEmptyDataOnHTTPURLResponseWithNilData() {
-//        let response = anyHTTPURLResponse()
-//
-//        let receivedValues = resultValuesFor(data: nil, response: response, error: nil)
-//
-//        let emptydata = Data()
-//        XCTAssertEqual(receivedValues?.data, emptydata)
-//        XCTAssertEqual(receivedValues?.response.url, response.url)
-//        XCTAssertEqual(receivedValues?.response.statusCode, response.statusCode)
-//    }
+    func test_getFromURL_succeedsOnHTTPURLResponseWithData() {
+        let data = anyData()
+        let response = anyHTTPURLResponse()
+
+        let receivedValues = resultValuesFor(data: data, response: response, error: nil)
+
+        XCTAssertEqual(receivedValues?.data, data)
+        XCTAssertEqual(receivedValues?.response.url, response.url)
+        XCTAssertEqual(receivedValues?.response.statusCode, response.statusCode)
+    }
+
+    func test_getFromURL_succeedsWithEmptyDataOnHTTPURLResponseWithNilData() {
+        let response = anyHTTPURLResponse()
+
+        let receivedValues = resultValuesFor(data: nil, response: response, error: nil)
+
+        let emptydata = Data()
+        XCTAssertEqual(receivedValues?.data, emptydata)
+        XCTAssertEqual(receivedValues?.response.url, response.url)
+        XCTAssertEqual(receivedValues?.response.statusCode, response.statusCode)
+    }
     
     //MARK - Helpers
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> HTTPClient {
@@ -134,9 +134,9 @@ class URLSessionHTTPClientTests: XCTestCase {
     
     private func anyHTTPURLResponse() -> HTTPURLResponse {
         return HTTPURLResponse(url: anyURL(),
-                               mimeType: nil,
-                               expectedContentLength: 0,
-                               textEncodingName: nil)
+                               statusCode: 200,
+                               httpVersion: nil,
+                               headerFields: nil)!
     }
     
     private func nonHTTPURLResponse() -> URLResponse {
