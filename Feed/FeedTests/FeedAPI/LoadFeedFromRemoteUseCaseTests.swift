@@ -1,5 +1,5 @@
 //
-//  RemoteFeedLoaderTests.swift
+//  LoadFeedFromRemoteUseCaseTests.swift
 //  FeedTests
 //
 //  Created by Erik Agujari on 29/05/2020.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import Feed
 
-class RemoteFeedLoaderTests: XCTestCase {
+class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     func test_init() {
         let client = HTTPClientSpy()
         let (_, _) = makeSUT()
