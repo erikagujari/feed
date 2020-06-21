@@ -23,6 +23,7 @@
 		828A05892483D9A500443FF1 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828A05882483D9A500443FF1 /* HTTPClient.swift */; };
 		828A058B2483DA0300443FF1 /* FeedItemMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828A058A2483DA0300443FF1 /* FeedItemMapper.swift */; };
 		82A56AC32480E2D900FE29AE /* LoadFeedFromRemoteUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A56AC22480E2D900FE29AE /* LoadFeedFromRemoteUseCaseTests.swift */; };
+		82A6EB26249FA1A700F7C508 /* RemoteFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A6EB25249FA1A700F7C508 /* RemoteFeedItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		828A05882483D9A500443FF1 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		828A058A2483DA0300443FF1 /* FeedItemMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemMapper.swift; sourceTree = "<group>"; };
 		82A56AC22480E2D900FE29AE /* LoadFeedFromRemoteUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFeedFromRemoteUseCaseTests.swift; sourceTree = "<group>"; };
+		82A6EB25249FA1A700F7C508 /* RemoteFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,9 +156,10 @@
 		827D66BD248254AB0035D0C9 /* FeedAPI */ = {
 			isa = PBXGroup;
 			children = (
-				827D66BE248254BF0035D0C9 /* RemoteFeedLoader.swift */,
-				828A05882483D9A500443FF1 /* HTTPClient.swift */,
 				828A058A2483DA0300443FF1 /* FeedItemMapper.swift */,
+				828A05882483D9A500443FF1 /* HTTPClient.swift */,
+				82A6EB25249FA1A700F7C508 /* RemoteFeedItem.swift */,
+				827D66BE248254BF0035D0C9 /* RemoteFeedLoader.swift */,
 				827EDAED248BA1E000297FD8 /* URLSessionHTTPClient.swift */,
 			);
 			path = FeedAPI;
@@ -337,6 +340,7 @@
 			files = (
 				82357E59247E8D1400E5AC7B /* FeedLoader.swift in Sources */,
 				828A058B2483DA0300443FF1 /* FeedItemMapper.swift in Sources */,
+				82A6EB26249FA1A700F7C508 /* RemoteFeedItem.swift in Sources */,
 				827D66BF248254BF0035D0C9 /* RemoteFeedLoader.swift in Sources */,
 				827F4537249F6BF600FF9776 /* FeedStore.swift in Sources */,
 				827F4535249F6B5800FF9776 /* LocalFeedLoader.swift in Sources */,
