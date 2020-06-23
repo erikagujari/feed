@@ -14,6 +14,15 @@ class ValidateFeedCacheUseCaseTests: XCTestCase {
         let (_, store) = makeSUT()
         XCTAssertEqual(store.receivedMessages, [])
     }
+    
+    func test_validateCaches_deletesCacheOnRetrievalError() {
+        let (sut, store) = makeSUT()
+        
+        sut.validateCache()
+        store.completeRetrieval(with: anyNSError())
+        
+        XCTAssertEqual(store.receivedMessages, [.retrieve, .deleteCachedFeed])
+    }
 }
 
 extension ValidateFeedCacheUseCaseTests {
@@ -24,5 +33,9 @@ extension ValidateFeedCacheUseCaseTests {
         trackForMemoryLeaks(instance: store, file: file, line: line)
         trackForMemoryLeaks(instance: sut, file: file, line: line)
         return (sut, store)
+    }
+    
+    private func anyNSError() -> NSError {
+        return NSError(domain: "any error", code: 0, userInfo: nil)
     }
 }
