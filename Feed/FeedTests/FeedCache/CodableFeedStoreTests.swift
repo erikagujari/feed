@@ -10,6 +10,12 @@ import XCTest
 import Feed
 
 class CodableFeedStore {
+    private let storeURL: URL
+    
+    init(storeURL: URL) {
+        self.storeURL = storeURL
+    }
+    
     private struct Cache: Codable {
         let feed: [CodableFeedImage]
         let timestamp: Date
@@ -50,8 +56,6 @@ class CodableFeedStore {
         let cache = try! decoder.decode(Cache.self, from: data)
         completion(.found(feed: cache.localFeed, timestamp: cache.timestamp))
     }
-    
-    private let storeURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("image-feed.store")
     
     func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping FeedStore.InsertionCompletion) {
         let encoder = JSONEncoder()
@@ -132,8 +136,9 @@ class CodableFeedStoreTests: XCTestCase {
     }
     
     //MARK: - Helpers
-    private func makeSUT() -> CodableFeedStore {
-        let sut = CodableFeedStore()
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> CodableFeedStore {
+        let storeURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("image-feed.store")
+        let sut = CodableFeedStore(storeURL: storeURL)
         trackForMemoryLeaks(instance: sut)
         return sut
     }
