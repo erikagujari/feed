@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		82322D6424B1D5AF00A43858 /* FeedCachePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82322D6324B1D5AF00A43858 /* FeedCachePolicy.swift */; };
 		82357E46247E873900E5AC7B /* Feed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82357E3C247E873900E5AC7B /* Feed.framework */; };
 		82357E57247E879700E5AC7B /* FeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82357E56247E879700E5AC7B /* FeedImage.swift */; };
 		82357E59247E8D1400E5AC7B /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82357E58247E8D1400E5AC7B /* FeedLoader.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		82322D6324B1D5AF00A43858 /* FeedCachePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCachePolicy.swift; sourceTree = "<group>"; };
 		82357E3C247E873900E5AC7B /* Feed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Feed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82357E40247E873900E5AC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82357E45247E873900E5AC7B /* FeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,6 +205,7 @@
 				827F4534249F6B5800FF9776 /* LocalFeedLoader.swift */,
 				827F4536249F6BF600FF9776 /* FeedStore.swift */,
 				82A6EB2D249FA2B700F7C508 /* LocalFeedImage.swift */,
+				82322D6324B1D5AF00A43858 /* FeedCachePolicy.swift */,
 			);
 			path = FeedCache;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				82357E59247E8D1400E5AC7B /* FeedLoader.swift in Sources */,
 				828A058B2483DA0300443FF1 /* FeedItemMapper.swift in Sources */,
 				82A6EB26249FA1A700F7C508 /* RemoteFeedItem.swift in Sources */,
+				82322D6424B1D5AF00A43858 /* FeedCachePolicy.swift in Sources */,
 				827D66BF248254BF0035D0C9 /* RemoteFeedLoader.swift in Sources */,
 				827F4537249F6BF600FF9776 /* FeedStore.swift in Sources */,
 				827F4535249F6B5800FF9776 /* LocalFeedLoader.swift in Sources */,
