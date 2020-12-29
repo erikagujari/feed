@@ -130,11 +130,9 @@ class LoadFeedFromRemoteUseCaseTests: XCTestCase {
                     "description": item.description,
                     "location": item.location,
                     "image": item.url.absoluteString]
+            .compactMapValues { $0 }
         
-        return (item, json.compactMapValues { value in
-            guard let value = value else { return nil }
-            return String(value)
-        })
+        return (item, json)
     }
     
     private func makeItemsJson(_ items: [[String: Any]]) -> Data {
