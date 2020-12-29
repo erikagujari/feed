@@ -25,13 +25,13 @@ class CodableFeedStoreTests: XCTestCase {
     func test_retrieve_deliversEmptyOnEmptyCache() {
         let sut = makeSUT()
         
-        expect(sut, toRetrieve: .empty)
+        expect(sut, toRetrieve: .success(.empty))
     }
     
     func test_retrieve_hasNoSideEffectsOnEmptyCache() {
         let sut = makeSUT()
         
-        expect(sut, toRetrieveTwice: .empty)
+        expect(sut, toRetrieveTwice: .success(.empty))
     }
     
     func test_retrieve_deliversFoundValuesOnNonEmptyCache() {
@@ -42,7 +42,7 @@ class CodableFeedStoreTests: XCTestCase {
         
         insert(cache, to: sut)
         
-        expect(sut, toRetrieve: .found((feed: feed, timestamp: timestamp)))
+        expect(sut, toRetrieve: .success(.found((feed: feed, timestamp: timestamp))))
     }
     
     func test_retrieve_hasNoSideEffectsOnNonOnEmptyCache() {
@@ -53,7 +53,7 @@ class CodableFeedStoreTests: XCTestCase {
         
         insert(cache, to: sut)
         
-        expect(sut, toRetrieveTwice: .found((feed: feed, timestamp: timestamp)))
+        expect(sut, toRetrieveTwice: .success(.found((feed: feed, timestamp: timestamp))))
     }
     
     func test_retrieve_deliversFailureOnRetrievalError() {
@@ -85,7 +85,7 @@ class CodableFeedStoreTests: XCTestCase {
         let latestInsertionError = insert((latestFeed, latestTimestamp), to: sut)
         
         XCTAssertNil(latestInsertionError, "Expected to override cache successfully")
-        expect(sut, toRetrieve: .found((feed: latestFeed, timestamp: latestTimestamp)))
+        expect(sut, toRetrieve: .success(.found((feed: latestFeed, timestamp: latestTimestamp))))
     }
     
     func test_insert_deliversErrorOnInsertionError() {
@@ -104,7 +104,7 @@ class CodableFeedStoreTests: XCTestCase {
         let deletionError = deleteCache(from: sut)
         
         XCTAssertNil(deletionError, "Expected empty cache deletion to succeed")
-        expect(sut, toRetrieve: .empty)
+        expect(sut, toRetrieve: .success(.empty))
     }
     
     func test_delete_emptiesPreviouslyInsertedCache() {
@@ -114,7 +114,7 @@ class CodableFeedStoreTests: XCTestCase {
         let deletionError = deleteCache(from: sut)
         
         XCTAssertNil(deletionError, "Expected non-empty cache deletion to succeed")
-        expect(sut, toRetrieve: .empty)
+        expect(sut, toRetrieve: .success(.empty))
     }
     
     func test_delete_deliversErrorOnDeletionError() {
@@ -143,10 +143,10 @@ class CodableFeedStoreTests: XCTestCase {
         
         sut.retrieve { receivedResult in
             switch (expectedResult, receivedResult) {
-            case (.empty, .empty),
+            case (.success(.empty), .success(.empty)),
                  (.failure, .failure):
                 break
-            case (.found(let expected), .found(let received)):
+            case (.success(.found(let expected)), .success(.found(let received))):
                 XCTAssertEqual(expected.feed, received.feed, file: file, line: line)
                 XCTAssertEqual(expected.timestamp, received.timestamp, file: file, line: line)
             default:
