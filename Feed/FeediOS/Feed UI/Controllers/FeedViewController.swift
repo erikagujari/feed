@@ -5,7 +5,6 @@
 //  Created by Erik Agujari on 30/1/21.
 //  Copyright © 2021 Erik Agujari. All rights reserved.
 //
-import Feed
 import UIKit
 
 final public class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {
