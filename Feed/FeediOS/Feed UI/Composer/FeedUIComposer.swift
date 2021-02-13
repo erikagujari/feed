@@ -6,6 +6,7 @@
 //  Copyright © 2021 Erik Agujari. All rights reserved.
 //
 import Feed
+import UIKit
 
 public final class FeedUICompose {
     private init() {}
@@ -21,7 +22,9 @@ public final class FeedUICompose {
     private static func adaptFeedToCellControllers(forwardingTo controller: FeedViewController, loader: FeedImageDataLoader) -> ([FeedImage]) -> Void {
         return { [weak controller] feed in
             controller?.tableModel = feed.map { model in
-                FeedImageCellController(model: model, imageLoader: loader)
+                let viewModel = FeedImageViewModel(model: model,
+                                                   imageLoader: loader, imageTransformer: UIImage.init)
+                return FeedImageCellController(viewModel: viewModel)
             }
         }
     }
