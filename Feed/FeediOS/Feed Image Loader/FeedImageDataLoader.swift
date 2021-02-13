@@ -7,12 +7,12 @@
 //
 import Foundation
 
-public protocol FeedImageLoaderTask {
+public protocol FeedImageDataLoaderTask {
     func cancel()
 }
 
 public protocol FeedImageDataLoader {
     typealias Result = Swift.Result<Data, Error>
     
-    func loadImageData(from url: URL, completion: @escaping (Result) -> Void) -> FeedImageLoaderTask
+    func loadImageData(from url: URL, completion: @escaping (Result) -> Void) -> FeedImageDataLoaderTask
 }
