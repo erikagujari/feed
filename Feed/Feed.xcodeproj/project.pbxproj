@@ -14,6 +14,7 @@
 		405CD7F925D8582E0071B71B /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405CD7F825D8582E0071B71B /* FeedViewModel.swift */; };
 		405CD80325D85BF80071B71B /* FeedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405CD80225D85BF80071B71B /* FeedImageViewModel.swift */; };
 		4063CFCF259E1FBC00488A60 /* FeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4063CFC6259E1FBC00488A60 /* FeediOS.framework */; };
+		4075108625D9236700FED38A /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4075108525D9236700FED38A /* FeedPresenter.swift */; };
 		408F062D25CD53EE001000DD /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408F062C25CD53EE001000DD /* FeedImageCell.swift */; };
 		408F063325CD75E9001000DD /* UIView+Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408F063225CD75E9001000DD /* UIView+Shimmering.swift */; };
 		40EA36D325C566F8001CDDA6 /* FeedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EA36D225C566F8001CDDA6 /* FeedViewControllerTests.swift */; };
@@ -108,6 +109,7 @@
 		4063CFC9259E1FBC00488A60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4063CFCE259E1FBC00488A60 /* FeediOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeediOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4063CFD5259E1FBC00488A60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4075108525D9236700FED38A /* FeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenter.swift; sourceTree = "<group>"; };
 		408F062C25CD53EE001000DD /* FeedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCell.swift; sourceTree = "<group>"; };
 		408F063225CD75E9001000DD /* UIView+Shimmering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmering.swift"; sourceTree = "<group>"; };
 		40EA36D225C566F8001CDDA6 /* FeedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerTests.swift; sourceTree = "<group>"; };
@@ -200,7 +202,6 @@
 		403B93CA25D7D73B0027C345 /* Feed UI */ = {
 			isa = PBXGroup;
 			children = (
-				405CD7F725D858200071B71B /* Models */,
 				403B93ED25D7E2BA0027C345 /* Composer */,
 				403B93CB25D7D7400027C345 /* Controllers */,
 				403B93CC25D7D7440027C345 /* Views */,
@@ -251,18 +252,10 @@
 			path = Composer;
 			sourceTree = "<group>";
 		};
-		405CD7F725D858200071B71B /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				405CD7F825D8582E0071B71B /* FeedViewModel.swift */,
-				405CD80225D85BF80071B71B /* FeedImageViewModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		4063CFC7259E1FBC00488A60 /* FeediOS */ = {
 			isa = PBXGroup;
 			children = (
+				4075108425D9233A00FED38A /* FeedPresentation */,
 				403B93C925D7D72C0027C345 /* Feed Image Loader */,
 				403B93CA25D7D73B0027C345 /* Feed UI */,
 				4063CFC9259E1FBC00488A60 /* Info.plist */,
@@ -277,6 +270,16 @@
 				4063CFD5259E1FBC00488A60 /* Info.plist */,
 			);
 			path = FeediOSTests;
+			sourceTree = "<group>";
+		};
+		4075108425D9233A00FED38A /* FeedPresentation */ = {
+			isa = PBXGroup;
+			children = (
+				405CD7F825D8582E0071B71B /* FeedViewModel.swift */,
+				405CD80225D85BF80071B71B /* FeedImageViewModel.swift */,
+				4075108525D9236700FED38A /* FeedPresenter.swift */,
+			);
+			path = FeedPresentation;
 			sourceTree = "<group>";
 		};
 		40EA36F225C56B83001CDDA6 /* Frameworks */ = {
@@ -633,6 +636,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4075108625D9236700FED38A /* FeedPresenter.swift in Sources */,
 				403B93D425D7D79F0027C345 /* FeedImageDataLoader.swift in Sources */,
 				403B93DE25D7DA1C0027C345 /* FeedRefreshViewController.swift in Sources */,
 				408F063325CD75E9001000DD /* UIView+Shimmering.swift in Sources */,
