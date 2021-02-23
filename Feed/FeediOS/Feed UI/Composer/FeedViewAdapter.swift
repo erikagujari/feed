@@ -6,6 +6,7 @@
 //  Copyright © 2021 Erik Agujari. All rights reserved.
 //
 import UIKit
+import Feed
 
 final class FeedViewAdapter: FeedView {
     private weak var controller: FeedViewController?
