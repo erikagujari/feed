@@ -1,0 +1,10 @@
+/* 
+  Feed.strings
+  Feed
+
+  Created by Erik Agujari on 23/2/21.
+  Copyright © 2021 Erik Agujari. All rights reserved.
+*/
+
+"FEED_VIEW_TITLE" = "Το Feed μου";
+"FEED_VIEW_CONNECTION_ERROR" = "Δεν ήταν δυνατή η σύνδεση στο διακομιστή";
