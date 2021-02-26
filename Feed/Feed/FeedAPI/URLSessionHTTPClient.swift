@@ -24,7 +24,7 @@ public final class URLSessionHTTPClient: HTTPClient {
         }
     }
     
-    public func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) {
+    public func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) -> HTTPClientTask {
         let task = session.dataTask(with: url, completionHandler: { data, response, error in
             if let error = error {
                 completion(.failure(error))
@@ -35,6 +35,6 @@ public final class URLSessionHTTPClient: HTTPClient {
             }
         })
         task.resume()
-//        return URLSessionTaskWrapper(wrapped: task)
+        return URLSessionTaskWrapper(wrapped: task)
     }
 }
