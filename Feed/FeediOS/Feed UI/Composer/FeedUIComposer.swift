@@ -34,9 +34,3 @@ private extension FeedViewController {
         return feedController
     }
 }
-
-extension FeedViewController: FeedErrorView {
-    public func display(_ viewModel: FeedErrorViewModel) {
-        
-    }
-}
