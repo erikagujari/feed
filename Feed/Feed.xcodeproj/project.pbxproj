@@ -17,6 +17,8 @@
 		401E719925E920670006437F /* RemoteFeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401E719825E920670006437F /* RemoteFeedImageDataLoader.swift */; };
 		401E719F25E925200006437F /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401E719E25E925200006437F /* URLProtocolStub.swift */; };
 		401E71A925E9375A0006437F /* LocalFeedImageDataLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401E71A825E9375A0006437F /* LocalFeedImageDataLoaderTests.swift */; };
+		401E71AF25E940390006437F /* FeedImageDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401E71AE25E940390006437F /* FeedImageDataStore.swift */; };
+		401E71B525E940660006437F /* LocalFeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401E71B425E940660006437F /* LocalFeedImageDataLoader.swift */; };
 		403B93E425D7DE3E0027C345 /* FeedImageCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B93E325D7DE3E0027C345 /* FeedImageCellController.swift */; };
 		403B93EF25D7E2E60027C345 /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B93EE25D7E2E60027C345 /* FeedUIComposer.swift */; };
 		40545CDA25E01CE200F96045 /* UITableView+Dequeueing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40545CD925E01CE200F96045 /* UITableView+Dequeueing.swift */; };
@@ -132,6 +134,8 @@
 		401E719825E920670006437F /* RemoteFeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedImageDataLoader.swift; sourceTree = "<group>"; };
 		401E719E25E925200006437F /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
 		401E71A825E9375A0006437F /* LocalFeedImageDataLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedImageDataLoaderTests.swift; sourceTree = "<group>"; };
+		401E71AE25E940390006437F /* FeedImageDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataStore.swift; sourceTree = "<group>"; };
+		401E71B425E940660006437F /* LocalFeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedImageDataLoader.swift; sourceTree = "<group>"; };
 		403B93D325D7D79F0027C345 /* FeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoader.swift; sourceTree = "<group>"; };
 		403B93E325D7DE3E0027C345 /* FeedImageCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCellController.swift; sourceTree = "<group>"; };
 		403B93EE25D7E2E60027C345 /* FeedUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIComposer.swift; sourceTree = "<group>"; };
@@ -502,6 +506,8 @@
 				827F4536249F6BF600FF9776 /* FeedStore.swift */,
 				82A6EB2D249FA2B700F7C508 /* LocalFeedImage.swift */,
 				82322D6324B1D5AF00A43858 /* FeedCachePolicy.swift */,
+				401E71AE25E940390006437F /* FeedImageDataStore.swift */,
+				401E71B425E940660006437F /* LocalFeedImageDataLoader.swift */,
 			);
 			path = FeedCache;
 			sourceTree = "<group>";
@@ -771,6 +777,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				401E71B525E940660006437F /* LocalFeedImageDataLoader.swift in Sources */,
 				82357E59247E8D1400E5AC7B /* FeedLoader.swift in Sources */,
 				828A058B2483DA0300443FF1 /* FeedItemMapper.swift in Sources */,
 				401E717525E909B10006437F /* HTTPURLResponse+StatusCode.swift in Sources */,
@@ -790,6 +797,7 @@
 				405BF29A25E540DB002FE8E6 /* FeedImagePresenter.swift in Sources */,
 				405BF27525E5382D002FE8E6 /* FeedErrorViewModel.swift in Sources */,
 				827EDAEE248BA1E000297FD8 /* URLSessionHTTPClient.swift in Sources */,
+				401E71AF25E940390006437F /* FeedImageDataStore.swift in Sources */,
 				405BF26925E537C8002FE8E6 /* FeedViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
