@@ -16,14 +16,14 @@ public class CoreDataFeedStore: FeedStore {
     }
     
     public func deleteCachedFeed(completion: @escaping DeletionCompletion) {
-        context.perform { [weak self] in
+        perform { [weak self] context in
             guard let self = self else { return }
             do {
-                let fetch = try self.context.fetch(CoreDataFeed.fetchRequest()) as [NSManagedObject]
+                let fetch = try context.fetch(CoreDataFeed.fetchRequest()) as [NSManagedObject]
                 fetch.forEach { feed in
-                    self.context.delete(feed)
+                    context.delete(feed)
                 }
-                self.save(context: self.context, errorCompletion: completion)
+                self.save(context: context, errorCompletion: completion)
             } catch let error {
                 completion(.failure(error))
             }
@@ -49,10 +49,9 @@ public class CoreDataFeedStore: FeedStore {
     }
     
     public func retrieve(completion: @escaping RetrievalCompletion) {
-        context.perform { [weak self] in
-            guard let self = self else { return }
+        perform { context in
             do {
-                guard let fetch = try self.context.fetch(CoreDataFeed.fetchRequest()) as? [CoreDataFeed],
+                guard let fetch = try context.fetch(CoreDataFeed.fetchRequest()) as? [CoreDataFeed],
                       let coreDataFeed = fetch.first,
                       let imageSet = coreDataFeed.images.array as? [CoreDataFeedImage]
                 else {
@@ -65,6 +64,11 @@ public class CoreDataFeedStore: FeedStore {
                 completion(.failure(error))
             }
         }
+    }
+    
+    func perform(_ action: @escaping (NSManagedObjectContext) -> Void) {
+        let context = self.context
+        context.perform { action(context) }
     }
 }
 

@@ -12,11 +12,11 @@ import CoreData
 
 
 extension CoreDataFeedImage {
-
+    
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CoreDataFeedImage> {
         return NSFetchRequest<CoreDataFeedImage>(entityName: "CoreDataFeedImage")
     }
-
+    
     @NSManaged public var id: UUID
     @NSManaged public var imageDescription: String?
     @NSManaged public var location: String?
@@ -35,5 +35,15 @@ extension CoreDataFeedImage {
 }
 
 extension CoreDataFeedImage : Identifiable {
+    
+}
 
+extension CoreDataFeedImage {
+    static func first(with url: URL, in context: NSManagedObjectContext) throws -> CoreDataFeedImage? {
+        let request = NSFetchRequest<CoreDataFeedImage>(entityName: entity().name!)
+        request.predicate = NSPredicate(format: "%K = %@", argumentArray: [#keyPath(CoreDataFeedImage.url), url])
+        request.returnsObjectsAsFaults = false
+        request.fetchLimit = 1
+        return try context.fetch(request).first
+    }
 }
