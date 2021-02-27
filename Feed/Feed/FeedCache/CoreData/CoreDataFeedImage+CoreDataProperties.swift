@@ -22,6 +22,7 @@ extension CoreDataFeedImage {
     @NSManaged public var location: String?
     @NSManaged public var url: URL
     @NSManaged public var feed: CoreDataFeed?
+    @NSManaged public var data: Data?
     
     public convenience init(id: UUID, imageDescription: String?, location: String?, url: URL, feed: CoreDataFeed?, context: NSManagedObjectContext) {
         self.init(context: context)
