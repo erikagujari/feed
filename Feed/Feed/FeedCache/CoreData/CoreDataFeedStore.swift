@@ -7,22 +7,23 @@
 //
 import CoreData
 
-public struct CoreDataFeedStore: FeedStore {
+public class CoreDataFeedStore: FeedStore {
     private let context: NSManagedObjectContext
     
-    public init(localURL: URL) throws {
-        let container = try CoreDataFeedStore.managedContainer(forLocalURL: localURL)
+    public init(localURL: URL, bundle: Bundle) throws {
+        let container = try CoreDataFeedStore.managedContainer(forLocalURL: localURL, bundle: bundle)
         context = container.newBackgroundContext()
     }
     
     public func deleteCachedFeed(completion: @escaping DeletionCompletion) {
-        context.perform {
+        context.perform { [weak self] in
+            guard let self = self else { return }
             do {
-                let fetch = try context.fetch(CoreDataFeed.fetchRequest()) as [NSManagedObject]
+                let fetch = try self.context.fetch(CoreDataFeed.fetchRequest()) as [NSManagedObject]
                 fetch.forEach { feed in
-                    context.delete(feed)
+                    self.context.delete(feed)
                 }
-                save(context: context, errorCompletion: completion)
+                self.save(context: self.context, errorCompletion: completion)
             } catch let error {
                 completion(.failure(error))
             }
@@ -30,26 +31,28 @@ public struct CoreDataFeedStore: FeedStore {
     }
     
     public func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletion) {
-        deleteCachedFeed { deletionResult in
+        deleteCachedFeed { [weak self] deletionResult in
+            guard let self = self else { return }
             switch deletionResult {
             case let .failure(error):
                 completion(.failure(error))
             case .success:
-                let coreDataFeed = CoreDataFeed(context: context)
-                let coreDataFeedImages = feed.map { CoreDataFeedImageMapper.fromLocalFeedImage($0, feed: coreDataFeed, context: context)}
+                let coreDataFeed = CoreDataFeed(context: self.context)
+                let coreDataFeedImages = feed.map { CoreDataFeedImageMapper.fromLocalFeedImage($0, feed: coreDataFeed, context: self.context)}
                 
                 coreDataFeed.images = NSOrderedSet(array: coreDataFeedImages)
                 coreDataFeed.timestamp = timestamp
                 
-                save(context: context, errorCompletion: completion)
+                self.save(context: self.context, errorCompletion: completion)
             }
         }
     }
     
     public func retrieve(completion: @escaping RetrievalCompletion) {
-        context.perform {
+        context.perform { [weak self] in
+            guard let self = self else { return }
             do {
-                guard let fetch = try context.fetch(CoreDataFeed.fetchRequest()) as? [CoreDataFeed],
+                guard let fetch = try self.context.fetch(CoreDataFeed.fetchRequest()) as? [CoreDataFeed],
                       let coreDataFeed = fetch.first,
                       let imageSet = coreDataFeed.images.array as? [CoreDataFeedImage]
                 else {
@@ -97,20 +100,20 @@ private extension CoreDataFeedStore {
         }
     }
     
-    static func managedObjectModel(fileName: String) throws -> NSManagedObjectModel {
-        guard let url = Bundle(for: CoreDataFeed.self).url(forResource: fileName, withExtension: "momd"),
+    static func managedObjectModel(fileName: String, bundle: Bundle) throws -> NSManagedObjectModel {
+        guard let url = bundle.url(forResource: fileName, withExtension: "momd"),
               let managedObjectModel = NSManagedObjectModel(contentsOf: url)
         else { throw CoreDataError.loadError }
         return managedObjectModel
     }
     
-    static func container() throws -> NSPersistentContainer {
+    static func container(bundle: Bundle) throws -> NSPersistentContainer {
         let fileName = "CoreDataFeed"
-        return NSPersistentContainer(name: fileName, managedObjectModel: try CoreDataFeedStore.managedObjectModel(fileName: fileName))
+        return NSPersistentContainer(name: fileName, managedObjectModel: try CoreDataFeedStore.managedObjectModel(fileName: fileName, bundle: bundle))
     }
     
-    static func managedContainer(forLocalURL URL: URL) throws -> NSPersistentContainer {
-        let container = try CoreDataFeedStore.container()
+    static func managedContainer(forLocalURL URL: URL, bundle: Bundle) throws -> NSPersistentContainer {
+        let container = try CoreDataFeedStore.container(bundle: bundle)
         container.persistentStoreDescriptions = [NSPersistentStoreDescription(url: URL)]
         var persistentError: Error?
         
