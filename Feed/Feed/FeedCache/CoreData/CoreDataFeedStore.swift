@@ -7,74 +7,26 @@
 //
 import CoreData
 
-public class CoreDataFeedStore: FeedStore {
-    private let context: NSManagedObjectContext
+public class CoreDataFeedStore {
+    let context: NSManagedObjectContext
     
     public init(localURL: URL, bundle: Bundle) throws {
         let container = try CoreDataFeedStore.managedContainer(forLocalURL: localURL, bundle: bundle)
         context = container.newBackgroundContext()
     }
     
-    public func deleteCachedFeed(completion: @escaping DeletionCompletion) {
-        perform { [weak self] context in
-            guard let self = self else { return }
-            do {
-                let fetch = try context.fetch(CoreDataFeed.fetchRequest()) as [NSManagedObject]
-                fetch.forEach { feed in
-                    context.delete(feed)
-                }
-                self.save(context: context, errorCompletion: completion)
-            } catch let error {
-                completion(.failure(error))
-            }
-        }
-    }
-    
-    public func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletion) {
-        deleteCachedFeed { [weak self] deletionResult in
-            guard let self = self else { return }
-            switch deletionResult {
-            case let .failure(error):
-                completion(.failure(error))
-            case .success:
-                let coreDataFeed = CoreDataFeed(context: self.context)
-                let coreDataFeedImages = feed.map { CoreDataFeedImageMapper.fromLocalFeedImage($0, feed: coreDataFeed, context: self.context)}
-                
-                coreDataFeed.images = NSOrderedSet(array: coreDataFeedImages)
-                coreDataFeed.timestamp = timestamp
-                
-                self.save(context: self.context, errorCompletion: completion)
-            }
-        }
-    }
-    
-    public func retrieve(completion: @escaping RetrievalCompletion) {
-        perform { context in
-            do {
-                guard let fetch = try context.fetch(CoreDataFeed.fetchRequest()) as? [CoreDataFeed],
-                      let coreDataFeed = fetch.first,
-                      let imageSet = coreDataFeed.images.array as? [CoreDataFeedImage]
-                else {
-                    completion(.success(.none))
-                    return
-                }
-                let timestamp = coreDataFeed.timestamp
-                completion(.success(.some((feed: imageSet.map { CoreDataFeedImageMapper.toLocalFeedImage($0) }, timestamp: timestamp))))
-            } catch let error {
-                completion(.failure(error))
-            }
-        }
-    }
-    
     func perform(_ action: @escaping (NSManagedObjectContext) -> Void) {
         let context = self.context
         context.perform { action(context) }
     }
-}
-
-private extension CoreDataFeedStore {    
-    enum CoreDataError: Error {
-        case loadError
+    
+    func save(context: NSManagedObjectContext, errorCompletion: InsertionCompletion) {
+        do {
+            try context.save()
+            errorCompletion(.success(()))
+        } catch {
+            errorCompletion(.failure(error))
+        }
     }
     
     struct CoreDataFeedImageMapper {
@@ -94,14 +46,11 @@ private extension CoreDataFeedStore {
                                      context: context)
         }
     }
-    
-    func save(context: NSManagedObjectContext, errorCompletion: InsertionCompletion) {
-        do {
-            try context.save()
-            errorCompletion(.success(()))
-        } catch {
-            errorCompletion(.failure(error))
-        }
+}
+
+private extension CoreDataFeedStore {    
+    enum CoreDataError: Error {
+        case loadError
     }
     
     static func managedObjectModel(fileName: String, bundle: Bundle) throws -> NSManagedObjectModel {

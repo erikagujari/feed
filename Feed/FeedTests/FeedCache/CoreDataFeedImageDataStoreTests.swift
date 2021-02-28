@@ -58,7 +58,7 @@ final class CoreDataFeedImageDataStoreTests: XCTestCase {
         }
 
         let op2 = expectation(description: "Operation 2")
-        sut.insert(anyData(), for: url) { _ in    op2.fulfill() }
+        sut.insert(anyData(), for: url) { _ in op2.fulfill() }
 
         let op3 = expectation(description: "Operation 3")
         sut.insert(anyData(), for: url) { _ in op3.fulfill() }
