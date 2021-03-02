@@ -10,7 +10,8 @@ import CoreData
 public class CoreDataFeedStore {
     let context: NSManagedObjectContext
     
-    public init(localURL: URL, bundle: Bundle) throws {
+    public init(localURL: URL) throws {
+        let bundle = Bundle(for: CoreDataFeedStore.self)
         let container = try CoreDataFeedStore.managedContainer(forLocalURL: localURL, bundle: bundle)
         context = container.newBackgroundContext()
     }
