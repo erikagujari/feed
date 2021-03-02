@@ -8,17 +8,29 @@
 import CoreData
 
 public class CoreDataFeedStore {
+    private let container: NSPersistentContainer
     let context: NSManagedObjectContext
     
     public init(localURL: URL) throws {
         let bundle = Bundle(for: CoreDataFeedStore.self)
-        let container = try CoreDataFeedStore.managedContainer(forLocalURL: localURL, bundle: bundle)
+        container = try CoreDataFeedStore.managedContainer(forLocalURL: localURL, bundle: bundle)
         context = container.newBackgroundContext()
     }
     
     func perform(_ action: @escaping (NSManagedObjectContext) -> Void) {
         let context = self.context
         context.perform { action(context) }
+    }
+    
+    private func cleanUpReferencesToPersistentStores() {
+        context.performAndWait {
+            let coordinator = self.container.persistentStoreCoordinator
+            try? coordinator.persistentStores.forEach(coordinator.remove)
+        }
+    }
+    
+    deinit {
+        cleanUpReferencesToPersistentStores()
     }
     
     func save(context: NSManagedObjectContext, errorCompletion: InsertionCompletion) {
