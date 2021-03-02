@@ -8,13 +8,27 @@
 import CoreData
 
 public class CoreDataFeedStore {
+    private static let modelName = "CoreDataFeed"
+    private static let model = NSManagedObjectModel.with(name: modelName, in: Bundle(for: CoreDataFeedStore.self))
     private let container: NSPersistentContainer
     let context: NSManagedObjectContext
     
-    public init(localURL: URL) throws {
-        let bundle = Bundle(for: CoreDataFeedStore.self)
-        container = try CoreDataFeedStore.managedContainer(forLocalURL: localURL, bundle: bundle)
-        context = container.newBackgroundContext()
+    enum StoreError: Error {
+        case modelNotFound
+        case failedToLoadPersistentContainer(Error)
+    }
+    
+    public init(localURL: URL) throws {        
+        guard let model = CoreDataFeedStore.model else {
+            throw StoreError.modelNotFound
+        }
+
+        do {
+            container = try NSPersistentContainer.load(name: CoreDataFeedStore.modelName, model: model, url: localURL)
+            context = container.newBackgroundContext()
+        } catch {
+            throw StoreError.failedToLoadPersistentContainer(error)
+        }
     }
     
     func perform(_ action: @escaping (NSManagedObjectContext) -> Void) {
@@ -61,32 +75,24 @@ public class CoreDataFeedStore {
     }
 }
 
-private extension CoreDataFeedStore {    
-    enum CoreDataError: Error {
-        case loadError
-    }
-    
-    static func managedObjectModel(fileName: String, bundle: Bundle) throws -> NSManagedObjectModel {
-        guard let url = bundle.url(forResource: fileName, withExtension: "momd"),
-              let managedObjectModel = NSManagedObjectModel(contentsOf: url)
-        else { throw CoreDataError.loadError }
-        return managedObjectModel
-    }
-    
-    static func container(bundle: Bundle) throws -> NSPersistentContainer {
-        let fileName = "CoreDataFeed"
-        return NSPersistentContainer(name: fileName, managedObjectModel: try CoreDataFeedStore.managedObjectModel(fileName: fileName, bundle: bundle))
-    }
-    
-    static func managedContainer(forLocalURL URL: URL, bundle: Bundle) throws -> NSPersistentContainer {
-        let container = try CoreDataFeedStore.container(bundle: bundle)
-        container.persistentStoreDescriptions = [NSPersistentStoreDescription(url: URL)]
-        var persistentError: Error?
-        
-        container.loadPersistentStores { (_, error) in
-            persistentError = error
-        }
-        guard persistentError == nil else { throw CoreDataError.loadError }
+extension NSPersistentContainer {
+    static func load(name: String, model: NSManagedObjectModel, url: URL) throws -> NSPersistentContainer {
+        let description = NSPersistentStoreDescription(url: url)
+        let container = NSPersistentContainer(name: name, managedObjectModel: model)
+        container.persistentStoreDescriptions = [description]
+
+        var loadError: Swift.Error?
+        container.loadPersistentStores { loadError = $1 }
+        try loadError.map { throw $0 }
+
         return container
+    }
+}
+
+extension NSManagedObjectModel {
+    static func with(name: String, in bundle: Bundle) -> NSManagedObjectModel? {
+        return bundle
+            .url(forResource: name, withExtension: "momd")
+            .flatMap { NSManagedObjectModel(contentsOf: $0) }
     }
 }
