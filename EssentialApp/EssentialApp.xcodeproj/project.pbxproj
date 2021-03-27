@@ -18,6 +18,7 @@
 		405F8B5B260F301200B7206E /* Feed.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 405F8B58260F301200B7206E /* Feed.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		405F8B5C260F301200B7206E /* FeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405F8B59260F301200B7206E /* FeediOS.framework */; };
 		405F8B5D260F301200B7206E /* FeediOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 405F8B59260F301200B7206E /* FeediOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		405F8B83260F3E7600B7206E /* FeedLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405F8B82260F3E7600B7206E /* FeedLoaderWithFallbackComposite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		405F8B0C260F2EA700B7206E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		405F8B58260F301200B7206E /* Feed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Feed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		405F8B59260F301200B7206E /* FeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		405F8B82260F3E7600B7206E /* FeedLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				405F8AFC260F2EA700B7206E /* Assets.xcassets */,
 				405F8AFE260F2EA700B7206E /* LaunchScreen.storyboard */,
 				405F8B01260F2EA700B7206E /* Info.plist */,
+				405F8B82260F3E7600B7206E /* FeedLoaderWithFallbackComposite.swift */,
 			);
 			path = EssentialApp;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			files = (
 				405F8AF8260F2EA500B7206E /* ViewController.swift in Sources */,
 				405F8AF4260F2EA500B7206E /* AppDelegate.swift in Sources */,
+				405F8B83260F3E7600B7206E /* FeedLoaderWithFallbackComposite.swift in Sources */,
 				405F8AF6260F2EA500B7206E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
