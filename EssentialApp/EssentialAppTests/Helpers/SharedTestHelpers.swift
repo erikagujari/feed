@@ -1,5 +1,5 @@
 //
-//  XCTestCase+Helpers.swift
+//  SharedTestHelpers.swift
 //  EssentialAppTests
 //
 //  Created by Erik Agujari on 31/3/21.
