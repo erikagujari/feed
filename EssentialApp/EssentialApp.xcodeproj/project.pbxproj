@@ -133,11 +133,11 @@
 		405F8B09260F2EA700B7206E /* EssentialAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				40823A422614B6D000369C53 /* Helpers */,
-				405F8B0A260F2EA700B7206E /* FeedLoaderWithFallbackCompositeTests.swift */,
-				405F8B0C260F2EA700B7206E /* Info.plist */,
 				40823A3E2614B21000369C53 /* FeedImageDataLoaderWithFallbackCompositeTests.swift */,
 				4083B82D261608B3002527CD /* FeedLoaderCacheDecoratorTests.swift */,
+				405F8B0A260F2EA700B7206E /* FeedLoaderWithFallbackCompositeTests.swift */,
+				405F8B0C260F2EA700B7206E /* Info.plist */,
+				40823A422614B6D000369C53 /* Helpers */,
 			);
 			path = EssentialAppTests;
 			sourceTree = "<group>";
