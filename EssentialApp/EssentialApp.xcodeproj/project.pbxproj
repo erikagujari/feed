@@ -27,6 +27,10 @@
 		4083B83226160BB8002527CD /* FeedLoaderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4083B83126160BB7002527CD /* FeedLoaderStub.swift */; };
 		4083B83526160CD0002527CD /* XCTestCase+FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4083B83426160CD0002527CD /* XCTestCase+FeedLoader.swift */; };
 		4083B84026161336002527CD /* FeedLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4083B83F26161336002527CD /* FeedLoaderCacheDecorator.swift */; };
+		4083B84426161517002527CD /* FeedImageDataLoaderDecoratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4083B84326161517002527CD /* FeedImageDataLoaderDecoratorTests.swift */; };
+		4083B8472616161A002527CD /* ImageDataLoaderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4083B8462616161A002527CD /* ImageDataLoaderStub.swift */; };
+		4083B84B261616DA002527CD /* XCTestCase+FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4083B84A261616DA002527CD /* XCTestCase+FeedImageDataLoader.swift */; };
+		4083B85826161B81002527CD /* FeedImageDataLoaderDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4083B85726161B81002527CD /* FeedImageDataLoaderDecorator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +81,10 @@
 		4083B83126160BB7002527CD /* FeedLoaderStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderStub.swift; sourceTree = "<group>"; };
 		4083B83426160CD0002527CD /* XCTestCase+FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FeedLoader.swift"; sourceTree = "<group>"; };
 		4083B83F26161336002527CD /* FeedLoaderCacheDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderCacheDecorator.swift; sourceTree = "<group>"; };
+		4083B84326161517002527CD /* FeedImageDataLoaderDecoratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderDecoratorTests.swift; sourceTree = "<group>"; };
+		4083B8462616161A002527CD /* ImageDataLoaderStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataLoaderStub.swift; sourceTree = "<group>"; };
+		4083B84A261616DA002527CD /* XCTestCase+FeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FeedImageDataLoader.swift"; sourceTree = "<group>"; };
+		4083B85726161B81002527CD /* FeedImageDataLoaderDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderDecorator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,15 +130,16 @@
 			isa = PBXGroup;
 			children = (
 				405F8AF3260F2EA500B7206E /* AppDelegate.swift */,
-				405F8AF5260F2EA500B7206E /* SceneDelegate.swift */,
-				405F8AF7260F2EA500B7206E /* ViewController.swift */,
-				405F8AF9260F2EA500B7206E /* Main.storyboard */,
 				405F8AFC260F2EA700B7206E /* Assets.xcassets */,
-				405F8AFE260F2EA700B7206E /* LaunchScreen.storyboard */,
-				405F8B01260F2EA700B7206E /* Info.plist */,
-				405F8B82260F3E7600B7206E /* FeedLoaderWithFallbackComposite.swift */,
 				40823A4A2614B93200369C53 /* FeedImageDataLoaderWithFallbackComposite.swift */,
 				4083B83F26161336002527CD /* FeedLoaderCacheDecorator.swift */,
+				405F8B82260F3E7600B7206E /* FeedLoaderWithFallbackComposite.swift */,
+				405F8B01260F2EA700B7206E /* Info.plist */,
+				405F8AFE260F2EA700B7206E /* LaunchScreen.storyboard */,
+				405F8AF9260F2EA500B7206E /* Main.storyboard */,
+				405F8AF5260F2EA500B7206E /* SceneDelegate.swift */,
+				405F8AF7260F2EA500B7206E /* ViewController.swift */,
+				4083B85726161B81002527CD /* FeedImageDataLoaderDecorator.swift */,
 			);
 			path = EssentialApp;
 			sourceTree = "<group>";
@@ -138,11 +147,12 @@
 		405F8B09260F2EA700B7206E /* EssentialAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				4083B84326161517002527CD /* FeedImageDataLoaderDecoratorTests.swift */,
 				40823A3E2614B21000369C53 /* FeedImageDataLoaderWithFallbackCompositeTests.swift */,
 				4083B82D261608B3002527CD /* FeedLoaderCacheDecoratorTests.swift */,
 				405F8B0A260F2EA700B7206E /* FeedLoaderWithFallbackCompositeTests.swift */,
-				405F8B0C260F2EA700B7206E /* Info.plist */,
 				40823A422614B6D000369C53 /* Helpers */,
+				405F8B0C260F2EA700B7206E /* Info.plist */,
 			);
 			path = EssentialAppTests;
 			sourceTree = "<group>";
@@ -163,6 +173,8 @@
 				40823A472614B8C900369C53 /* SharedTestHelpers.swift */,
 				4083B83426160CD0002527CD /* XCTestCase+FeedLoader.swift */,
 				40823A432614B6DF00369C53 /* XCTestCase+TrackForMemoryLeaks.swift */,
+				4083B8462616161A002527CD /* ImageDataLoaderStub.swift */,
+				4083B84A261616DA002527CD /* XCTestCase+FeedImageDataLoader.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -272,6 +284,7 @@
 				405F8AF4260F2EA500B7206E /* AppDelegate.swift in Sources */,
 				405F8B83260F3E7600B7206E /* FeedLoaderWithFallbackComposite.swift in Sources */,
 				4083B84026161336002527CD /* FeedLoaderCacheDecorator.swift in Sources */,
+				4083B85826161B81002527CD /* FeedImageDataLoaderDecorator.swift in Sources */,
 				405F8AF6260F2EA500B7206E /* SceneDelegate.swift in Sources */,
 				40823A4B2614B93200369C53 /* FeedImageDataLoaderWithFallbackComposite.swift in Sources */,
 			);
@@ -281,12 +294,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4083B84426161517002527CD /* FeedImageDataLoaderDecoratorTests.swift in Sources */,
 				40823A482614B8C900369C53 /* SharedTestHelpers.swift in Sources */,
 				4083B83526160CD0002527CD /* XCTestCase+FeedLoader.swift in Sources */,
+				4083B84B261616DA002527CD /* XCTestCase+FeedImageDataLoader.swift in Sources */,
 				4083B82E261608B3002527CD /* FeedLoaderCacheDecoratorTests.swift in Sources */,
 				40823A3F2614B21000369C53 /* FeedImageDataLoaderWithFallbackCompositeTests.swift in Sources */,
 				405F8B0B260F2EA700B7206E /* FeedLoaderWithFallbackCompositeTests.swift in Sources */,
 				4083B83226160BB8002527CD /* FeedLoaderStub.swift in Sources */,
+				4083B8472616161A002527CD /* ImageDataLoaderStub.swift in Sources */,
 				40823A442614B6DF00369C53 /* XCTestCase+TrackForMemoryLeaks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
