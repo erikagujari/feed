@@ -3,4 +3,132 @@
    uuid = "6B8AA451-8257-4236-A814-27C7EA4882B8"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8BA2AC4D-927A-4F94-A00F-0D03092230A1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EssentialApp/EssentialApp/DebuggingSceneDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "scene(_:willConnectTo:options:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B37D9C8E-4622-4300-A281-B7679E8951EE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EssentialApp/EssentialApp/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "application(_:configurationForConnecting:options:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E50F7599-3E75-4397-A702-9F7D1DD5CD3E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EssentialApp/EssentialApp/DebuggingSceneDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "makeRemoteClient()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7779F51E-CF7A-453C-8A7B-DC00F7C4AB07"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EssentialApp/EssentialApp/DebuggingSceneDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "Task"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "7779F51E-CF7A-453C-8A7B-DC00F7C4AB07 - f35a123595fc2d66"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EssentialApp.DebuggingSceneDelegate.(DebuggingHTTPClient in _9CB1623888D5407B9B4BBAA61CC18EB8).Task.deinit"
+                  moduleName = "EssentialApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/erikagujari/Documents/Workspace/feed/EssentialApp/EssentialApp/DebuggingSceneDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "7779F51E-CF7A-453C-8A7B-DC00F7C4AB07 - 2c440d7d3b6bfca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EssentialApp.DebuggingSceneDelegate.(DebuggingHTTPClient in _9CB1623888D5407B9B4BBAA61CC18EB8).Task.__deallocating_deinit"
+                  moduleName = "EssentialApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/erikagujari/Documents/Workspace/feed/EssentialApp/EssentialApp/DebuggingSceneDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "7779F51E-CF7A-453C-8A7B-DC00F7C4AB07 - 896ea6c0ffa67410"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EssentialApp.DebuggingSceneDelegate.(DebuggingHTTPClient in _9CB1623888D5407B9B4BBAA61CC18EB8).Task.__allocating_init() -&gt; EssentialApp.DebuggingSceneDelegate.(DebuggingHTTPClient in _9CB1623888D5407B9B4BBAA61CC18EB8).Task"
+                  moduleName = "EssentialApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/erikagujari/Documents/Workspace/feed/EssentialApp/EssentialApp/DebuggingSceneDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "17">
+               </Location>
+               <Location
+                  uuid = "7779F51E-CF7A-453C-8A7B-DC00F7C4AB07 - a2862da14eb12146"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EssentialApp.DebuggingSceneDelegate.(DebuggingHTTPClient in _9CB1623888D5407B9B4BBAA61CC18EB8).Task.init() -&gt; EssentialApp.DebuggingSceneDelegate.(DebuggingHTTPClient in _9CB1623888D5407B9B4BBAA61CC18EB8).Task"
+                  moduleName = "EssentialApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/erikagujari/Documents/Workspace/feed/EssentialApp/EssentialApp/DebuggingSceneDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
