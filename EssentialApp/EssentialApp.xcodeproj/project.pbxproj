@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		404D609426234E8800E29B8F /* EssentialAppUIAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404D609326234E8800E29B8F /* EssentialAppUIAcceptanceTests.swift */; };
+		404D609E26235B7A00E29B8F /* DebuggingSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404D609D26235B7A00E29B8F /* DebuggingSceneDelegate.swift */; };
 		405F8AF4260F2EA500B7206E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405F8AF3260F2EA500B7206E /* AppDelegate.swift */; };
 		405F8AF6260F2EA500B7206E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405F8AF5260F2EA500B7206E /* SceneDelegate.swift */; };
 		405F8AF8260F2EA500B7206E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405F8AF7260F2EA500B7206E /* ViewController.swift */; };
@@ -70,6 +71,7 @@
 		404D609126234E8700E29B8F /* EssentialAppUIAcceptanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialAppUIAcceptanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		404D609326234E8800E29B8F /* EssentialAppUIAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialAppUIAcceptanceTests.swift; sourceTree = "<group>"; };
 		404D609526234E8800E29B8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		404D609D26235B7A00E29B8F /* DebuggingSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebuggingSceneDelegate.swift; sourceTree = "<group>"; };
 		405F8AF0260F2EA500B7206E /* EssentialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		405F8AF3260F2EA500B7206E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		405F8AF5260F2EA500B7206E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				405F8AF5260F2EA500B7206E /* SceneDelegate.swift */,
 				405F8AF7260F2EA500B7206E /* ViewController.swift */,
 				4083B85726161B81002527CD /* FeedImageDataLoaderDecorator.swift */,
+				404D609D26235B7A00E29B8F /* DebuggingSceneDelegate.swift */,
 			);
 			path = EssentialApp;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				405F8AF4260F2EA500B7206E /* AppDelegate.swift in Sources */,
 				405F8B83260F3E7600B7206E /* FeedLoaderWithFallbackComposite.swift in Sources */,
 				4083B84026161336002527CD /* FeedLoaderCacheDecorator.swift in Sources */,
+				404D609E26235B7A00E29B8F /* DebuggingSceneDelegate.swift in Sources */,
 				4083B85826161B81002527CD /* FeedImageDataLoaderDecorator.swift in Sources */,
 				405F8AF6260F2EA500B7206E /* SceneDelegate.swift in Sources */,
 				40823A4B2614B93200369C53 /* FeedImageDataLoaderWithFallbackComposite.swift in Sources */,
