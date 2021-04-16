@@ -8,15 +8,15 @@
 import UIKit
 import Feed
 
-protocol FeedViewControllerDelegate {
+public protocol FeedViewControllerDelegate {
     func didRequestFeedRefresh()
 }
 
 final public class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching, FeedLoadingView, FeedErrorView {
     @IBOutlet public private(set) var errorView: ErrorView?
-    var delegate: FeedViewControllerDelegate?
+    public var delegate: FeedViewControllerDelegate?
     
-    var tableModel = [FeedImageCellController]() {
+    public var tableModel = [FeedImageCellController]() {
         didSet {
             tableView.reloadData()
         }

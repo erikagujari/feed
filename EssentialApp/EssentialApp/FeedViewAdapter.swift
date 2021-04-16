@@ -7,6 +7,7 @@
 //
 import UIKit
 import Feed
+import FeediOS
 
 final class FeedViewAdapter: FeedView {
     private weak var controller: FeedViewController?

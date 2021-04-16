@@ -6,6 +6,7 @@
 //  Copyright © 2021 Erik Agujari. All rights reserved.
 //
 import Feed
+import FeediOS
 
 final class FeedLoaderPresentationAdapter: FeedViewControllerDelegate {
     private let feedLoader: FeedLoader

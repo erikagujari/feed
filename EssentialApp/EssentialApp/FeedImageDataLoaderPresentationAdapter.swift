@@ -6,6 +6,7 @@
 //  Copyright © 2021 Erik Agujari. All rights reserved.
 //
 import Feed
+import FeediOS
 
 final class FeedImageDataLoaderPresentationAdapter<View: FeedImageView, Image>: FeedImageCellControllerDelegate where View.Image == Image {
     private let model: FeedImage
