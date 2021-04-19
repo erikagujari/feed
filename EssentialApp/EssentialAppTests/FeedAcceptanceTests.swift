@@ -35,9 +35,30 @@ final class FeedAcceptanceTests: XCTestCase {
         
         XCTAssertEqual(feed.numberOfRenderedFeedImageViews(), 0)
     }
+    
+    func test_onEnteringBackground_deletesExpiredFeedCache() {
+        let store = InMemoryFeedStore.withExpiredFeedCache
+        
+        enterBackground(with: store)
+        
+        XCTAssertNil(store.feedCache, "expected to delete cache")
+    }
+    
+    func test_onEnteringBackground_keepsNonExpiredFeedCache() {
+        let store = InMemoryFeedStore.withNonExpiredFeedCache
+        
+        enterBackground(with: store)
+        
+        XCTAssertNotNil(store.feedCache, "expected to keep non-expired cache")
+    }
 }
 
 private extension FeedAcceptanceTests {
+    func enterBackground(with store: InMemoryFeedStore) {
+        let sut = SceneDelegate(httpClient: HTTPClientStub.offline, store: store)
+        sut.sceneWillResignActive(UIApplication.shared.connectedScenes.first!)
+    }
+    
     func launch(httpClient: HTTPClientStub = .offline,
                 store: InMemoryFeedStore = .empty) -> FeedViewController {
         let sut = SceneDelegate(httpClient: httpClient, store: store)
@@ -47,6 +68,7 @@ private extension FeedAcceptanceTests {
         let nav = sut.window?.rootViewController as? UINavigationController
         return nav?.topViewController as! FeedViewController
     }
+    
     class HTTPClientStub: HTTPClient {
         private class Task: HTTPClientTask {
             func cancel() {}
@@ -74,8 +96,8 @@ private extension FeedAcceptanceTests {
     }
     
     class InMemoryFeedStore: FeedStore, FeedImageDataStore {
-        private var feedCache: CachedFeed?
         private var feedImageDataCache: [URL: Data] = [:]
+        var feedCache: CachedFeed?
         
         init(feedCache: CachedFeed? = nil, feedImageDataCache: [URL : Data] = [:]) {
             self.feedCache = feedCache
