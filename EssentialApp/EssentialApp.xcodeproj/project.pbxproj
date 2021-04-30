@@ -177,12 +177,12 @@
 		405F8B09260F2EA700B7206E /* EssentialAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				40823A422614B6D000369C53 /* Helpers */,
 				407C42CE2629D7F9002BA0B1 /* FeedUIIntegrationTests.swift */,
 				4083B84326161517002527CD /* FeedImageDataLoaderDecoratorTests.swift */,
 				40823A3E2614B21000369C53 /* FeedImageDataLoaderWithFallbackCompositeTests.swift */,
 				4083B82D261608B3002527CD /* FeedLoaderCacheDecoratorTests.swift */,
 				405F8B0A260F2EA700B7206E /* FeedLoaderWithFallbackCompositeTests.swift */,
-				40823A422614B6D000369C53 /* Helpers */,
 				405F8B0C260F2EA700B7206E /* Info.plist */,
 				407C429C2629BC79002BA0B1 /* SceneDelegateTests.swift */,
 				407C42DC2629DA1C002BA0B1 /* FeedAcceptanceTests.swift */,
