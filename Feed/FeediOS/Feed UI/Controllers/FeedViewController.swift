@@ -26,6 +26,10 @@ final public class FeedViewController: UITableViewController, UITableViewDataSou
         delegate?.didRequestFeedRefresh()
     }
     
+    public func display(_ cellControllers: [FeedImageCellController]) {
+        tableModel = cellControllers
+    }
+    
     public func display(_ viewModel: FeedLoadingViewModel) {
         if viewModel.isLoading {
             refreshControl?.beginRefreshing()
@@ -52,7 +56,7 @@ final public class FeedViewController: UITableViewController, UITableViewDataSou
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         refresh()
     }
     
